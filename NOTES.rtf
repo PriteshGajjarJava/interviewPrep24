@@ -1,0 +1,257 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;\f4\fmodern\fcharset0 Courier-Bold;\f5\fmodern\fcharset0 Courier;
+\f6\fnil\fcharset0 HelveticaNeue-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red14\green14\blue14;\red245\green245\blue245;
+}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c6667\c6667\c6667;\cssrgb\c96863\c96863\c96863;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww35640\viewh19560\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs54 \cf0 	\
+	1) WAP which will print numbers 1-10 in reverse order.\
+\
+	o/p should be: \
+	10 9 8 7 6 5 4 3 2 1\
+\
+\
+	Editors:\
+	- Sublime Text\
+	- Visual Studio Code\
+\
+Software List:\
+	Install DBMS - MySQL / PostgreSQL / Oracle\
+	Java - JDK 10 \
+	Python - python3\
+	C/C++ - Visual Studio\
+\
+Programs:\
+\
+	- Fibonacci Series\
+	- Factorial\
+	- Prime\
+	- Odd or Even\
+	- Print pattern like below\
+		* * * * \
+	     * * *\
+		* *\
+		*\
+DBMS:\
+	- SQL queries syntax:\
+		Select\
+		Insert\
+		Update\
+		Delete\
+\
+\
+	What is DBMS?\
+	Database Management System.\
+\
+\
+	DBMS : It\'92s a system which manages database.\
+\
+	Database :\
+	- Database help to organise data in structured way. It also helps to manage data effectively.\
+	- Database can be considered as \'93Collection of tables\'94\
+	- One application/project has one dedicated database.\
+	- One database can contain multiple tables.\
+\
+	Ex. of DBMS: MySQL, PostgreSQL, Oracle\
+\
+	Example of Database: \'93irctc\'94 \
+	Tables:\
+		- Train\
+		- TrainRoute\
+		- Passenger\
+		- Ticket\
+		\
+	Table:\
+	- Any entity which has properties can be created as \'93table\'94.\
+	- It is collection of records(tuples) of same type.\
+	- Every table should have \'93Primary Key\'94.\
+\
+	Primary Key:\
+	- Unique key to identify records uniquely\
+	- e.g. \
+		Company -> \'93companyID\'94, \
+		Emp         -> \'93EmpID\'94\
+	\
+	Foreign Key:\
+	- In One to Many relationship we have to copy primary key of one table into another table.\
+	e.g.	\
+			Company -> Employee\
+		In this case, \'93companyId\'94 will go as foreign key in Employee table.\
+\
+	Composite Primary Key:\
+	- More than one key (pair) is declared as primary key for uniqueness. \
+\
+	Types of relationship:\
+	1) One to One	(Primary key of both tables goes as foreign key into another table) e.x. Company -> CEO\
+	2) One to Many or Many to One (Primary key of one sided table goes as foreign key into many sided table). e.g. Company -> Employee\
+	3) Many to Many : New table is created with primary keys of both tables. Ex. Movie -> Actor. New table \'93Movie_Actor\'94 will be created with keys(movieId+actorId)\
+\
+	\
+\
+
+\f1\b SQL Queries:\
+
+\f0\b0 \
+	create database pga;\
+	use pga;\
+	
+\f2\fs50 \cf2 \CocoaLigature0 create table employee(id integer primary key, name text, salary float);
+\f0\fs54 \cf0 \CocoaLigature1 \
+	
+\f2\fs50 \cf2 \CocoaLigature0 insert into employee values(14, "John", 15000);\
+	select * from employee;\
+	select name, salary from employee where salary >= 25000;\
+\
+	update employee set salary+=5000 where id=14;
+\f0\fs54 \cf0 \CocoaLigature1 \
+	
+\f2\fs50 \cf2 \CocoaLigature0 delete from employee where id = 46;\
+\
+	select count(*) from employee;\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+	 select count(*) from employee where salary>=25000;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs54 \cf0 \CocoaLigature1 \
+	Ex. Of \'93nested query\'94\
+	\
+	
+\f2\fs50 \cf2 \CocoaLigature0 select * from employee where salary in (select max(salary) from employee);\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+	\
+	 select * from employee where salary in (select min(salary) from employee);\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs54 \cf0 \CocoaLigature1 \
+	
+\f2\fs50 \cf2 \CocoaLigature0 select max(salary) from employee where salary < (select max(salary) from employee);
+\f0\fs54 \cf0 \CocoaLigature1 \
+\
+	
+\f2\fs50 \cf2 \CocoaLigature0 create table company(id integer AUTO_INCREMENT primary key, name varchar(30));\
+	insert into company(name) values("TCS");
+\f0\fs54 \cf0 \CocoaLigature1 \
+\
+	
+\f2\fs50 \cf2 \CocoaLigature0 ALTER TABLE employee add companyId integer;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f3\b\fs70 	
+\f4\fs52 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ALTER TABLE employee ADD FOREIGN KEY (companyId) REFERENCES company(id);\
+
+\f1\fs74 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	
+\fs36 Display Company Name having maximum number of employees.
+\fs74 \
+\
+	
+\f5\b0\fs36 \cf3 \cb4 \expnd0\expndtw0\kerning0
+SELECT name FROM company WHERE \
+\pard\pardeftab720\partightenfactor0
+\cf3 		id = (SELECT companyId FROM (\cb1 SELECT companyId, COUNT(*) AS employeeCount \
+					FROM employee GROUP BY companyId ORDER BY employeeCount DESC LIMIT 1\cb4 ) AS result);\
+\pard\pardeftab720\partightenfactor0
+
+\f6\b\fs52 \cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs54 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	If company is deleted then employees of that company should be delete from employee table.\
+	Solution: TRIGGER\
+\
+
+\fs74 	
+\f5\fs52 \cf3 \cb4 \expnd0\expndtw0\kerning0
+CREATE TRIGGER after_company_delete\
+\pard\pardeftab720\partightenfactor0
+\cf3 		BEFORE DELETE ON company\
+		FOR EACH ROW\
+		BEGIN\
+    	 DELETE FROM employee WHERE company_id = OLD.company_id;\
+		END;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs54 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs48 \cf2 \CocoaLigature0 create table product(id integer AUTO_INCREMENT primary key, name varchar(50), price float, mfgDate date, expDate date);\
+\
+CRUD:\
+insert into product(name, price, mfgDate, expDate) values("Shoes", 2000, '7-7-2023', '6-7-2026');\
+\
+Select * from product;\
+Select name, price from product;\
+Select * from product where id=2;\
+\
+update product set price=price - price*0.10 where id = 2;\
+\
+delete from product where id = 3;
+\f0\fs54 \cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+1) Mobile \
+2) Application\
+\
+1Mobile -> Many application \
+\
+1 Samsung 2GB 128GB\
+\
+Application:\
+appID mobileID   appName\
+App1   1 			Gmail\
+App2.  1 			Contact\
+App3.  1 			FB\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 App11   2 			Gmail\
+App2.  2 			Contact\
+App3.  3 			FB\
+App1   5 			Gmail\
+App2.  5 			Contact\
+App3.  5 			FB\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\b\fs58 \cf2 \CocoaLigature0  select name from mobile where id =(select mobileId from (select mobileId, count(*) as appCount from application group by(mobileId) ORDER BY appCount DESC LIMIT 1) as abc);
+\f1\fs64 \cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b0\fs54 \cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
