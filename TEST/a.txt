@@ -1,0 +1,10 @@
+Creating Directory	mkdir <dir-name>	mkdir <dir-name>
+Current Directory Name	cd (check directory)	pwd
+New File	type nul > file.txt	touch <file-name>
+Copy file	copy <file1> <new-location>	cp <file1> <new-location>
+Remove file	del <filename>	rm <filename>
+Rename	rename <sourceFile> <newFile>	mv file-name new-fileName
+Size of file	dir filename	du -sh <fileName>
+Move File	move <source-file> <new-location>	mv <source-file> <new-location>
+Check content of dir	dir	ls
+Delete folder	del <folderName>	rm -frv <folder-name>
